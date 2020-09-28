@@ -23,6 +23,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint:eslint": "eslint . --ext ts",
     "lint:typescript": "lerna run typescript",
     "lint:prettier": "prettier --write \"**/*.{js,json,ts}\"",
