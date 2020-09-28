@@ -5,5 +5,5 @@ test('two plus two is four', () => {
 });
 
 test('is output 2', () => {
-    expect(romanToInt('1')).toBe(1);
+  expect(romanToInt('1')).toBe(1);
 });
