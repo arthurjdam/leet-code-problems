@@ -10,12 +10,18 @@
     "@types/jest": "^26.0.14",
     "@types/node": "^14.11.2",
     "babel-jest": "^26.3.0",
+    "eslint": "^7.10.0",
     "jest": "^26.4.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
     "ts-jest": "^26.4.0",
     "typescript": "^4.0.3"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint:eslint": "eslint . --ext ts",
+    "lint:typescript": "lerna run typescript",
+    "lint:prettier": "prettier --write \"**/*.{js,json,ts}\"",
+    "lint": "run-p lint:typescript lint:prettier lint:eslint"
   }
 }
