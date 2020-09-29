@@ -19,7 +19,7 @@ export default function romanToInt(s: string): number {
   let num = 0;
   let m;
   // eslint-disable-next-line no-cond-assign
-  while (m = token.exec(s)) {
+  while ((m = token.exec(s))) {
     num += key[m[0]];
   }
   return num;
