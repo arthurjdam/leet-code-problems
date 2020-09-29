@@ -2,6 +2,7 @@ import {expect, test} from '@jest/globals';
 import intToRoman from './integer-to-roman';
 
 test('Basic numbers', () => {
+  expect(intToRoman(0)).toBe('');
   expect(intToRoman(1)).toBe('I');
   expect(intToRoman(2)).toBe('II');
   expect(intToRoman(3)).toBe('III');
