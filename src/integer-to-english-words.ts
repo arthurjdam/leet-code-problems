@@ -1,4 +1,4 @@
-const singles = [
+const singles: Array<string> = [
   '',
   'One',
   'Two',
@@ -11,6 +11,7 @@ const singles = [
   'Nine',
 ];
 const exceptions: Record<number, string> = {
+  10: 'Ten',
   11: 'Eleven',
   12: 'Twelve',
   13: 'Thirteen',
@@ -39,7 +40,7 @@ function hundred(num: number): string {
   num = num % 10 ** 3;
   const out = [];
 
-  if (num > 10 ** 2) {
+  if (num >= 10 ** 2) {
     const hundreds = Math.floor(num / 100);
     if (exceptions[hundreds]) {
       out.push(exceptions[hundreds]);
@@ -48,7 +49,7 @@ function hundred(num: number): string {
     }
     out.push('Hundred');
   }
-  if (num > 10) {
+  if (num % 10 ** 2 >= 10) {
     if (exceptions[num % 100]) {
       out.push(exceptions[num % 100]);
     } else if (num % 100 > 0) {
@@ -64,6 +65,7 @@ function hundred(num: number): string {
 }
 
 export default function numberToWords(num: number): string {
+  if (num === 0) return 'Zero';
   const out = [];
   if (hundred(Math.floor(num / 10 ** 9)).length > 0) {
     out.push(hundred(Math.floor(num / 10 ** 9)), 'Billion');
