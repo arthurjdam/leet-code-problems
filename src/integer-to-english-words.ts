@@ -36,6 +36,8 @@ const minors = [
   'Ninety',
 ];
 
+const majors = ['', 'Thousand', 'Million', 'Billion'];
+
 function hundred(num: number): string {
   num = num % 10 ** 3;
   const out = [];
@@ -67,17 +69,14 @@ function hundred(num: number): string {
 export default function numberToWords(num: number): string {
   if (num === 0) return 'Zero';
   const out = [];
-  if (hundred(Math.floor(num / 10 ** 9)).length > 0) {
-    out.push(hundred(Math.floor(num / 10 ** 9)), 'Billion');
+  for (let i = 3; i >= 0; i--) {
+    if (hundred(Math.floor(num / 10 ** (i * 3))).length > 0) {
+      out.push(hundred(Math.floor(num / 10 ** (i * 3))));
+      if (i > 0) {
+        out.push(majors[i]);
+      }
+    }
   }
-  if (hundred(Math.floor(num / 10 ** 6)).length > 0) {
-    out.push(hundred(Math.floor(num / 10 ** 6)), 'Million');
-  }
-  if (hundred(Math.floor(num / 10 ** 3)).length > 0) {
-    out.push(hundred(Math.floor(num / 10 ** 3)), 'Thousand');
-  }
-  if (hundred(Math.floor(num)).length > 0) {
-    out.push(hundred(Math.floor(num)));
-  }
+
   return out.join(' ');
 }
