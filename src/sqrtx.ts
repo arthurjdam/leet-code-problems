@@ -11,3 +11,11 @@ export default function mySqrt(x: number): number {
     }
     return 0;
 }
+
+export function mySqrt2(x: number): number {
+    return Math.floor(Math.pow(x, 0.5));
+}
+
+export function mySqrt3(x: number): number {
+    return Math.floor(Math.sqrt(x));
+}
