@@ -1,3 +1,13 @@
 export default function mySqrt(x: number): number {
-    return Math.floor(Math.sqrt(x));
-};
+    let i = 0;
+    while (i < Number.MAX_SAFE_INTEGER) {
+        if (i * i > x) {
+            return i - 1;
+        }
+        if (i * i == x) {
+            return i;
+        }
+        ++i;
+    }
+    return 0;
+}
