@@ -1,4 +1,5 @@
 function offset(char: string, amount: number): string {
+  amount = amount % (122 - 96);
   const charCode = char.charCodeAt(0);
   if (charCode + amount > 122) {
     return String.fromCharCode(((charCode + amount) % 122) + 96);
