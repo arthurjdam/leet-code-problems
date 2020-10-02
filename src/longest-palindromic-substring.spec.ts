@@ -13,4 +13,6 @@ test('Input examples', () => {
     ),
   ).toBe('gykrkyg');
   expect(longestPalindrome('abb')).toBe('bb');
+  expect(longestPalindrome('abba')).toBe('abba');
+  expect(longestPalindrome('abacab')).toBe('bacab');
 });
