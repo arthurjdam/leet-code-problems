@@ -10,15 +10,18 @@ export default function addToArrayForm(A: number[], K: number): number[] {
   while (A.length < out.length) {
     A.unshift(0);
   }
+
   let carry = 0;
   for (let i = out.length - 1; i >= 0; i--) {
     const sum = K_[i] + A[i] + carry;
     out[i] = sum % 10;
     carry = ~~(sum / 10);
   }
+
   while (out.length > 1) {
     if (out[0] === 0) out.shift();
     else break;
   }
+
   return out;
 }
