@@ -16,7 +16,7 @@ export default function addToArrayForm(A: number[], K: number): number[] {
     out[i] = sum % 10;
     carry = ~~(sum / 10);
   }
-  while (out.length > 0) {
+  while (out.length > 1) {
     if (out[0] === 0) out.shift();
     else break;
   }

@@ -2,6 +2,7 @@ import { expect, test } from '@jest/globals';
 import addToArrayForm from './add-to-array-form-of-integer';
 
 test('Input xamples', () => {
+  expect(addToArrayForm([0], 34)).toStrictEqual([3, 4]);
   expect(addToArrayForm([1, 2, 0, 0], 34)).toStrictEqual([1, 2, 3, 4]);
   expect(addToArrayForm([2, 7, 4], 181)).toStrictEqual([4, 5, 5]);
   expect(addToArrayForm([2, 1, 5], 806)).toStrictEqual([1, 0, 2, 1]);
@@ -24,4 +25,5 @@ test('Input xamples', () => {
       516,
     ),
   ).toStrictEqual([1, 2, 6, 3, 0, 7, 1, 7, 1, 9, 7, 5, 6, 6, 4, 4, 0, 5, 7, 9]);
+  expect(addToArrayForm([0], 0)).toStrictEqual([0]);
 });
