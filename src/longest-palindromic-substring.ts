@@ -1,9 +1,15 @@
-function reverse(str: string): string {
-  let reversed = '';
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversed += str[i];
+function isPalindrome(s: string): boolean {
+  let l = 0;
+  let r = s.length - 1;
+  while (l < r) {
+    if (s[l] !== s[r]) {
+      return false;
+    } else {
+      l++;
+      r--;
+    }
   }
-  return reversed;
+  return true;
 }
 
 export default function longestPalindrome(s: string): string {
@@ -11,11 +17,11 @@ export default function longestPalindrome(s: string): string {
   for (let i = 0; i < s.length; ++i) {
     for (let j = i; j < s.length; ++j) {
       if (s.length - j > longest.length) {
-          const substr = s.substr(i, s.length - j);
-          if (substr.length > longest.length && substr === reverse(substr)) {
-              longest = substr;
-            }
+        const substr = s.substr(i, s.length - j);
+        if (substr.length > longest.length && isPalindrome(substr)) {
+          longest = substr;
         }
+      }
     }
   }
   return longest;
