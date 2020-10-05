@@ -8,7 +8,7 @@ test('Basic numbers', () => {
     [7, 8, 9],
   ];
   rotate(matrix1);
-  expect(matrix1).toBe([
+  expect(matrix1).toStrictEqual([
     [7, 4, 1],
     [8, 5, 2],
     [9, 6, 3],
@@ -21,7 +21,7 @@ test('Basic numbers', () => {
     [15, 14, 12, 16],
   ];
   rotate(matrix2);
-  expect(matrix2).toBe([
+  expect(matrix2).toStrictEqual([
     [15, 13, 2, 5],
     [14, 3, 4, 1],
     [12, 6, 8, 9],
@@ -30,14 +30,14 @@ test('Basic numbers', () => {
 
   const matrix3 = [[1]];
   rotate(matrix3);
-  expect(matrix3).toBe([[1]]);
+  expect(matrix3).toStrictEqual([[1]]);
 
   const matrix4 = [
     [1, 2],
     [3, 4],
   ];
   rotate(matrix4);
-  expect(matrix4).toBe([
+  expect(matrix4).toStrictEqual([
     [3, 1],
     [4, 2],
   ]);
