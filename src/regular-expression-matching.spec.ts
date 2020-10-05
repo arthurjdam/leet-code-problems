@@ -6,5 +6,6 @@ test('Input examples', () => {
   expect(isMatch('aa', 'a*')).toBe(true);
   expect(isMatch('ab', '.*')).toBe(true);
   expect(isMatch('aab', 'c*a*b')).toBe(true);
+  expect(isMatch('aab', 'c*a**b')).toBe(true);
   expect(isMatch('mississippi', 'mis*is*p*.')).toBe(false);
 });
