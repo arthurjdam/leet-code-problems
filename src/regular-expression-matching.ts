@@ -1,3 +1,3 @@
 export default function isMatch(s: string, p: string): boolean {
-    return false;
+  return new RegExp(`^${p}$`, 'gi').test(s);
 }
