@@ -25,6 +25,6 @@ export default function isMatch(s: string, p: string): boolean {
       }
     }
   }
-  
-  return acc[s.length][p.length];
+
+  return acc[s.length][p.length] || false;
 }
