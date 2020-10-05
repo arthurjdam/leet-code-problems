@@ -8,4 +8,5 @@ test('Input examples', () => {
   expect(isMatch('aab', 'c*a*b')).toBe(true);
   expect(isMatch('aab', 'c*a**b')).toBe(false);
   expect(isMatch('mississippi', 'mis*is*p*.')).toBe(false);
+  expect(isMatch('aa', '*a')).toBe(false);
 });
