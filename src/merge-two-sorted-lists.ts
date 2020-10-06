@@ -15,7 +15,10 @@ export default function mergeTwoLists(
 ): ListNode | null {
   if (!l1 && !l2) return null;
 
-  function merge(left: ListNode | null, right: ListNode | null): ListNode | null {
+  function merge(
+    left: ListNode | null,
+    right: ListNode | null,
+  ): ListNode | null {
     if (!left) return right;
     if (!right) return left;
 
