@@ -1,7 +1,6 @@
 export default function threeSum(nums: number[]): number[][] {
   nums = nums.sort((a, b) => a - b);
 
-  const keys = new Set<string>();
   const out: number[][] = [];
 
   if (nums.length < 3) {
@@ -13,14 +12,27 @@ export default function threeSum(nums: number[]): number[][] {
     if (i > 0 && nums[i] === nums[i - 1]) {
       continue;
     }
-    for (let j = i + 1; j < nums.length - 1; ++j) {
-      for (let k = j + 1; k < nums.length; ++k) {
-        const set = [nums[i], nums[j], nums[k]];
-        const key = set.join('-');
-        if (set[0] + set[1] + set[2] == 0 && !keys.has(key)) {
-          keys.add(key);
-          out.push(set);
-        }
+    let j = i + 1;
+    let k = nums.length - 1;
+    while (j < k) {
+      const sum = nums[i] + nums[j] + nums[k];
+      if (sum === 0) {
+        out.push([nums[i], nums[j], nums[k]]);
+
+        while (nums[j] === nums[j + 1]) j++;
+        while (nums[k] === nums[k - 1]) k--;
+
+        j++;
+        k--;
+        continue;
+      }
+      if (sum < 0) {
+        j++;
+        continue;
+      }
+      if (sum > 0) {
+        k--;
+        continue;
       }
     }
   }
