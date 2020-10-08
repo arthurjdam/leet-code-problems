@@ -1,4 +1,4 @@
-export default function threeSum(nums: number[]): number[][] {
+export default function threeSum(nums: number[], target = 0): number[][] {
   nums = nums.sort((a, b) => a - b);
 
   const out: number[][] = [];
@@ -8,7 +8,7 @@ export default function threeSum(nums: number[]): number[][] {
   }
 
   for (let i = 0; i < nums.length - 2; ++i) {
-    if (nums[i] > 0) break;
+    if (nums[i] > target) break;
     if (i > 0 && nums[i] === nums[i - 1]) {
       continue;
     }
@@ -16,7 +16,7 @@ export default function threeSum(nums: number[]): number[][] {
     let k = nums.length - 1;
     while (j < k) {
       const sum = nums[i] + nums[j] + nums[k];
-      if (sum === 0) {
+      if (sum === target) {
         out.push([nums[i], nums[j], nums[k]]);
 
         while (nums[j] === nums[j + 1]) j++;
@@ -24,15 +24,10 @@ export default function threeSum(nums: number[]): number[][] {
 
         j++;
         k--;
-        continue;
-      }
-      if (sum < 0) {
+      } else if (sum < target) {
         j++;
-        continue;
-      }
-      if (sum > 0) {
+      } else if (sum > target) {
         k--;
-        continue;
       }
     }
   }
