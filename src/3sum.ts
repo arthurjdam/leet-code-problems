@@ -9,9 +9,7 @@ export default function threeSum(nums: number[], target = 0): number[][] {
 
   for (let i = 0; i < nums.length - 2; ++i) {
     if (nums[i] > target) break;
-    if (i > 0 && nums[i] === nums[i - 1]) {
-      continue;
-    }
+
     let j = i + 1;
     let k = nums.length - 1;
     while (j < k) {
@@ -30,6 +28,7 @@ export default function threeSum(nums: number[], target = 0): number[][] {
         k--;
       }
     }
+    while (nums[i] === nums[i + 1]) i++;
   }
   return out;
 }
