@@ -24,7 +24,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "lint:eslint": "eslint . --ext ts",
-    "lint:typescript": "lerna run typescript",
+    "lint:typescript": "tsc --noEmit -p .",
     "lint:prettier": "prettier --write \"**/*.{js,json,ts}\"",
     "lint": "run-p lint:typescript lint:prettier lint:eslint"
   }
