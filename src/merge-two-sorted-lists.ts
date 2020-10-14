@@ -23,10 +23,12 @@ export default function mergeTwoLists(
     if (!right) return left;
 
     if (left.val < right.val) {
-      left.next = merge(left.next, right);
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      left.next = merge(left.next!, right);
       return left;
     } else {
-      right.next = merge(left, right.next);
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      right.next = merge(left, right.next!);
       return right;
     }
   }
