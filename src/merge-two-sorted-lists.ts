@@ -19,16 +19,14 @@ export default function mergeTwoLists(
     left: ListNode | null,
     right: ListNode | null,
   ): ListNode | null {
-    if (!left) return right;
-    if (!right) return left;
+    if (!left || !left.next) return right;
+    if (!right || !right.next) return left;
 
     if (left.val < right.val) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      left.next = merge(left.next!, right);
+      left.next = merge(left.next, right);
       return left;
     } else {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      right.next = merge(left, right.next!);
+      right.next = merge(left, right.next);
       return right;
     }
   }
