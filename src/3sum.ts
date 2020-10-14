@@ -6,7 +6,6 @@ export default function threeSum(nums: number[], target = 0): number[][] {
   if (nums.length < 3) {
     return out;
   }
-
   for (let i = 0; i < nums.length - 2; ++i) {
     if (nums[i] > target) break;
 
