@@ -1,4 +1,4 @@
-import {expect, test} from '@jest/globals';
+import { expect, test } from '@jest/globals';
 import intToRoman from './integer-to-roman';
 
 test('Basic numbers', () => {
